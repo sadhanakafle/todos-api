@@ -9,8 +9,9 @@ export class TodosService {
 
   }
   async create(createTodoDto: CreateTodoDto) {
+    createTodoDto.user_id=1;//temporary error fixed
     return this.prisma.todo.create({
-      data: createTodoDto,
+      data:createTodoDto
     });
   }
 

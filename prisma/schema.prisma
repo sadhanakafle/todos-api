@@ -21,18 +21,19 @@ model User{
   password    String        @db.VarChar(191)
   created_at  DateTime      @default(now())
   update_at  DateTime      @updatedAt
-  
+  todos Todo[]
   @@map("users")
 }
 
 model Todo{
   id          Int           @id@default(autoincrement())
+  user_id  Int
   title       String        @db.VarChar(191)
   description String? 
   status      Boolean       @default(false)
   created_at  DateTime      @default(now())
   upadate_at  DateTime      @updatedAt
-
+  user User @relation (fields: [user_id], references: [id])
   @@map("todos")
 }
 
