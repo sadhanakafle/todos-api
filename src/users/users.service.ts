@@ -52,7 +52,7 @@ export class UsersService {
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    let user: User | null;
+    let user: User | null;//user value is user data or null
     await this.findOne(id);
 
     if (updateUserDto.email) {
